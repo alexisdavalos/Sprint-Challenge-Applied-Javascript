@@ -26,8 +26,9 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
             console.log(article)
                 article.forEach(item =>{ 
                     console.log(item);
-                    //create elements
+                    
                     function createCard(item){ //create card for each article 
+                        //create elements
                         const card = document.createElement('div'),
                             headline = document.createElement('div'),
                             author = document.createElement('div'),
