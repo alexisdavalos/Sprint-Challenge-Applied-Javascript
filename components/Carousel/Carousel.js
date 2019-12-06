@@ -36,14 +36,14 @@ function carousel(){
     right_button.classList.add('right-button');
 
     //add properties
-    img1.src = './assets/carousel/mountains.jpeg';
-    img2.src = './assets/carousel/computer.jpeg';
-    img3.src = './assets/carousel/trees.jpeg';
-    img4.src = './assets/carousel/turntable.jpeg';
+    img1.src = '../assets/carousel/mountains.jpeg';
+    img2.src = '../assets/carousel/computer.jpeg';
+    img3.src = '../assets/carousel/trees.jpeg';
+    img4.src = '../assets/carousel/turntable.jpeg';
 
     //add content
-    left_button.textContent = '<';
-    right_button.textContent = '>';
+    left_button.textContent = '◀';
+    right_button.textContent = '▶';
 
     //append items
     carousel.appendChild(left_button);
@@ -56,3 +56,7 @@ function carousel(){
     return carousel;
 
 }
+
+//select parent element
+const carouselContainer = document.querySelector('.carousel-container');
+carouselContainer.appendChild(carousel());
