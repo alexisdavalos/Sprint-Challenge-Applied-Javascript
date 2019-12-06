@@ -24,6 +24,7 @@ function carousel(){
     //create elements
     const carousel = document.createElement('div'),
           left_button = document.createElement('div'),
+          img_container = document.createElement('div'),
           img1 = document.createElement('img'),
           img2 = document.createElement('img'),
           img3 = document.createElement('img'),
@@ -34,6 +35,9 @@ function carousel(){
     carousel.classList.add('carousel');
     left_button.classList.add('left-button');
     right_button.classList.add('right-button');
+    img_container.classList.add('img-container');
+    img1.classList.add('show');
+ 
 
     //add properties
     img1.src = '../assets/carousel/mountains.jpeg';
@@ -47,12 +51,56 @@ function carousel(){
 
     //append items
     carousel.appendChild(left_button);
-    carousel.appendChild(img1);
-    carousel.appendChild(img2);
-    carousel.appendChild(img3);
-    carousel.appendChild(img4);
+    carousel.appendChild(img_container);
+    img_container.appendChild(img1);
+    img_container.appendChild(img2);
+    img_container.appendChild(img3);
+    img_container.appendChild(img4);
     carousel.appendChild(right_button);
 
+    //carousel functionality
+
+    imgArray = [img1,img2,img3,img4];
+
+    //   right_button.addEventListener('click', () =>{
+    //     for(let i =0; i < imgArray.length; i++){
+    //       imgArray[i].classList.toggle('hide');
+    //       imgArray[i].classList.toggle('show');
+    //     }
+    // })
+    cycle = 0;
+      right_button.addEventListener('click', () =>{
+        if(cycle < imgArray.length){
+          imgArray[cycle].classList.toggle('show');
+          imgArray[cycle+1].classList.toggle('show');
+          cycle++;
+          console.log(cycle);
+            if(cycle === imgArray.length-1){
+              console.log(imgArray[cycle]);
+              imgArray[cycle].classList.toggle('show');
+              cycle = 0;  
+              imgArray[cycle].classList.toggle('show');
+              console.log(`the cycle is ${cycle}`);  
+            } 
+        }
+
+      })
+      left_button.addEventListener('click', () =>{
+        if(cycle < imgArray.length){
+          imgArray[cycle].classList.toggle('show');
+          imgArray[cycle-1].classList.toggle('show');
+          cycle++;
+          console.log(cycle);
+            if(cycle === imgArray.length-1){
+              console.log(imgArray[cycle]);
+              imgArray[cycle].classList.toggle('show');
+              cycle = 0;  
+              imgArray[cycle].classList.toggle('show');
+              console.log(`the cycle is ${cycle}`);  
+            } 
+        }
+
+      })
     return carousel;
 
 }
