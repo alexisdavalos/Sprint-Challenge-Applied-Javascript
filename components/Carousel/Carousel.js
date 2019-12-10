@@ -60,7 +60,7 @@ function carousel(){
 
     //carousel functionality
 
-    imgArray = [img1,img2,img3,img4];
+    let imgArray = [img1,img2,img3,img4];
 
     //   right_button.addEventListener('click', () =>{
     //     for(let i =0; i < imgArray.length; i++){
@@ -68,39 +68,52 @@ function carousel(){
     //       imgArray[i].classList.toggle('show');
     //     }
     // })
-    cycle = 0;
+    let cycle = 0;
       right_button.addEventListener('click', () =>{
-        if(cycle < imgArray.length){
-          imgArray[cycle].classList.toggle('show');
-          imgArray[cycle+1].classList.toggle('show');
-          cycle++;
-          console.log(cycle);
-            if(cycle === imgArray.length-1){
-              console.log(imgArray[cycle]);
-              imgArray[cycle].classList.toggle('show');
-              cycle = 0;  
-              imgArray[cycle].classList.toggle('show');
-              console.log(`the cycle is ${cycle}`);  
-            } 
+
+        for(let i=0; i < imgArray.length; i++){
+          if(i !== 3){
+            console.log(`Image ${i} of ${imgArray.length}`)
+            imgArray[i].classList.toggle('show');
+            imgArray[i++].classList.toggle('show');
+          }
+          
+          
+         
         }
 
-      })
-      left_button.addEventListener('click', () =>{
-        if(cycle < imgArray.length){
-          imgArray[cycle].classList.toggle('show');
-          imgArray[cycle-1].classList.toggle('show');
-          cycle++;
-          console.log(cycle);
-            if(cycle === imgArray.length-1){
-              console.log(imgArray[cycle]);
-              imgArray[cycle].classList.toggle('show');
-              cycle = 0;  
-              imgArray[cycle].classList.toggle('show');
-              console.log(`the cycle is ${cycle}`);  
-            } 
-        }
+
+
+        // if(cycle < imgArray.length){
+        //   imgArray[cycle].classList.toggle('show');
+        //   imgArray[cycle+1].classList.toggle('show');
+        //   cycle++;
+        //   console.log(`Image ${cycle} of ${imgArray.length}`);
+        //     if(cycle === imgArray.length-1){
+        //       // console.log(`Image ${imgArray[cycle]} of ${imgArray.length}`);
+        //       cycle = 0;  
+        //       imgArray[cycle].classList.toggle('show');
+        //       console.log(`the cycle is ${cycle}`);  
+        //     } 
+        // }
 
       })
+      // left_button.addEventListener('click', () =>{
+      //   if(cycle < imgArray.length){
+      //     imgArray[cycle].classList.toggle('show');
+      //     imgArray[cycle-1].classList.toggle('show');
+      //     cycle++;
+      //     console.log(cycle);
+      //       if(cycle === imgArray.length-1){
+      //         console.log(imgArray[cycle]);
+      //         imgArray[cycle].classList.toggle('show');
+      //         cycle = 0;  
+      //         imgArray[cycle].classList.toggle('show');
+      //         console.log(`the cycle is ${cycle}`);  
+      //       } 
+      //   }
+
+      // })
     return carousel;
 
 }
