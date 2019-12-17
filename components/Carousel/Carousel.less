@@ -34,8 +34,22 @@
     right: 25px;
     transform: translate(0, -50%);
   }
-  img {
-    .width-100();
-    display: none;
+  .img-container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      .width-100();
+      display: block;
+      z-index:-1;
+      position:absolute;
+      visibility:hidden;
+      opacity:0;
+    }
+    .show{
+      visibility: visible;
+      opacity: 100;
+    }
   }
+ 
 }
